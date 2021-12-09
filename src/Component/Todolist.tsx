@@ -1,18 +1,29 @@
 import React from "react";
 import style from './Todolost.module.css';
+type TaskType = {
+    id: string
+    title: string
+    isDone: boolean
+}
 
-function Todolist() {
+type PropsType = {
+    tasks: TaskType[]
+    title: string
+}
+
+function Todolist(props: PropsType) {
+
+    let taskItem = props.tasks.map(t => {
+        return <li><input type="checkbox"/>{t.title} <button>x</button></li>
+    })
+
     return(
         <div>
-            <h3>What to learn</h3>
+            <h3>{props.title}</h3>
             <input type="text"/>
             <button>+</button>
-            <ul>
-                <li>1</li>
-                <li>2</li>
-                <li>3</li>
-                <li>4</li>
-                <li>5</li>
+            <ul className={style.listItem}>
+                {taskItem}
             </ul>
             <button>All</button>
             <button>Active</button>
