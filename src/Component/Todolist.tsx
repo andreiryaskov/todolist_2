@@ -1,5 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import style from './Todolost.module.css';
+import {FilterValueType} from "../App";
 
 type TaskType = {
     id: string
@@ -12,6 +13,7 @@ type PropsType = {
     title: string
     addTask: (inputValue: string) => void
     removeTask: (eventId: string) => void
+    changeFilter:(value: FilterValueType) => void;
 }
 
 function Todolist(props: PropsType) {
@@ -29,20 +31,23 @@ function Todolist(props: PropsType) {
 
     let [inputValue, setInputValue] = useState('')
 
-    const addTaskForButton = () => {
+    const addTaskBtn = () => {
         props.addTask(inputValue)
         setInputValue('')
     }
 
-    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+    const   onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setInputValue(e.currentTarget.value)
-    }
-
-    const onKeyPressHandler = (e: KeyboardEvent) => {
+    },
+            onKeyPressHandler = (e: KeyboardEvent) => {
         if (e.charCode === 13) {
-            addTaskForButton()
+            addTaskBtn()
         }
     }
+
+    const   onAllChangeFilter = () => {props.changeFilter('all')},
+            onActiveChangeFilter = () => {props.changeFilter('active')},
+            onCompletedChangeFilter = () => {props.changeFilter('completed')}
 
     return (
         <div>
@@ -51,13 +56,13 @@ function Todolist(props: PropsType) {
                    value={inputValue}
                    onChange={onChangeHandler}
                    onKeyPress={onKeyPressHandler}/>
-            <button onClick={addTaskForButton}>+</button>
+            <button onClick={addTaskBtn}>+</button>
             <ul className={style.listItem}>
                 {taskItem}
             </ul>
-            <button>All</button>
-            <button>Active</button>
-            <button>Completed</button>
+            <button onClick={ onAllChangeFilter }>All</button>
+            <button onClick={ onActiveChangeFilter }>Active</button>
+            <button onClick={ onCompletedChangeFilter }>Completed</button>
         </div>
     )
 }

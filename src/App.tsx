@@ -3,6 +3,8 @@ import './App.css';
 import Todolist from "./Component/Todolist";
 import {v1} from "uuid";
 
+export type FilterValueType = 'all' | 'active' | 'completed';
+
 function App() {
 
     let [tasks, setTasks] = useState([
@@ -24,12 +26,28 @@ function App() {
         setTasks(filteredTask)
     }
 
+    let [filter, setFilter] = useState<FilterValueType>('all')
+
+    let taskForTodoList = tasks
+
+    if (filter === 'active') {
+        taskForTodoList = tasks.filter(t => t.isDone === false)
+    }
+    if (filter === 'completed') {
+        taskForTodoList = tasks.filter(t => t.isDone === true)
+    }
+
+    function changeFilter(value: FilterValueType) {
+        setFilter(value)
+    }
+
     return (
         <div className={'app_wrapper'}>
             <Todolist removeTask={removeTask}
-                      tasks={tasks}
+                      tasks={taskForTodoList}
                       title={'What to learn'}
-                      addTask={addTask}/>
+                      addTask={addTask}
+                      changeFilter={changeFilter}/>
         </div>
     )
 }
