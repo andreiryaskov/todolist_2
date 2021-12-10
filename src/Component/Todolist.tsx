@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import style from './Todolost.module.css';
 type TaskType = {
     id: string
@@ -25,10 +25,21 @@ function Todolist(props: PropsType) {
         setInputValue('')
     }
 
+    const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
+        setInputValue(e.currentTarget.value)
+    }
+
+    const onKeyPressHandler = (e: KeyboardEvent) => {
+        if (e.charCode === 13) {addTaskForButton()}
+    }
+
     return(
         <div>
             <h3>{props.title}</h3>
-            <input type="text" value={inputValue} onChange={ (e) => { setInputValue(e.currentTarget.value) } }/>
+            <input type="text"
+                   value={inputValue}
+                   onChange={ onChangeHandler }
+                   onKeyPress={ onKeyPressHandler }/>
             <button onClick={ addTaskForButton }>+</button>
             <ul className={style.listItem}>
                 {taskItem}
