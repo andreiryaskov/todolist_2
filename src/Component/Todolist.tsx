@@ -20,11 +20,16 @@ function Todolist(props: PropsType) {
 
     let [inputValue, setInputValue] = useState('')
 
+    const addTaskForButton = () => {
+        props.addTask(inputValue)
+        setInputValue('')
+    }
+
     return(
         <div>
             <h3>{props.title}</h3>
             <input type="text" value={inputValue} onChange={ (e) => { setInputValue(e.currentTarget.value) } }/>
-            <button onClick={ () => {props.addTask(inputValue)} }>+</button>
+            <button onClick={ addTaskForButton }>+</button>
             <ul className={style.listItem}>
                 {taskItem}
             </ul>
