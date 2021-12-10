@@ -1,5 +1,6 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import style from './Todolost.module.css';
+
 type TaskType = {
     id: string
     title: string
@@ -10,12 +11,20 @@ type PropsType = {
     tasks: TaskType[]
     title: string
     addTask: (inputValue: string) => void
+    removeTask: (eventId: string) => void
 }
 
 function Todolist(props: PropsType) {
 
     let taskItem = props.tasks.map(t => {
-        return <li><input type="checkbox"/>{t.title} <button>x</button></li>
+        return <li key={t.id}><input type="checkbox"
+                                     checked={t.isDone}/>
+            <span>{t.title} </span>
+            <button onClick={() => {
+                props.removeTask(t.id)
+            }}>x
+            </button>
+        </li>
     })
 
     let [inputValue, setInputValue] = useState('')
@@ -30,17 +39,19 @@ function Todolist(props: PropsType) {
     }
 
     const onKeyPressHandler = (e: KeyboardEvent) => {
-        if (e.charCode === 13) {addTaskForButton()}
+        if (e.charCode === 13) {
+            addTaskForButton()
+        }
     }
 
-    return(
+    return (
         <div>
             <h3>{props.title}</h3>
             <input type="text"
                    value={inputValue}
-                   onChange={ onChangeHandler }
-                   onKeyPress={ onKeyPressHandler }/>
-            <button onClick={ addTaskForButton }>+</button>
+                   onChange={onChangeHandler}
+                   onKeyPress={onKeyPressHandler}/>
+            <button onClick={addTaskForButton}>+</button>
             <ul className={style.listItem}>
                 {taskItem}
             </ul>

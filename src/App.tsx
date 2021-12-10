@@ -6,11 +6,11 @@ import {v1} from "uuid";
 function App() {
 
     let [tasks, setTasks] = useState([
-        {id: v1(), title: 'HTML5', isDone: true},
+        {id: v1(), title: 'HTML5', isDone: false},
         {id: v1(), title: 'CSS3', isDone: true},
         {id: v1(), title: 'JavaScript', isDone: true},
         {id: v1(), title: 'React', isDone: false},
-        {id: v1(), title: 'Redux', isDone: false}
+        {id: v1(), title: 'Redux', isDone: true}
     ])
 
     function addTask(inputValue: string) {
@@ -19,9 +19,17 @@ function App() {
         setTasks(newTask)
     }
 
-    return(
+    function removeTask(eventId: string) {
+        let filteredTask = tasks.filter(t => t.id != eventId)
+        setTasks(filteredTask)
+    }
+
+    return (
         <div className={'app_wrapper'}>
-          <Todolist tasks={tasks} title={'What to learn'} addTask={addTask}/>
+            <Todolist removeTask={removeTask}
+                      tasks={tasks}
+                      title={'What to learn'}
+                      addTask={addTask}/>
         </div>
     )
 }
