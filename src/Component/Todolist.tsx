@@ -14,6 +14,8 @@ type PropsType = {
     addTask: (inputValue: string) => void
     removeTask: (eventId: string) => void
     changeFilter:(value: FilterValueType) => void;
+    id: string
+    filter: string
 }
 
 function Todolist(props: PropsType) {
