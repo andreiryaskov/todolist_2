@@ -52,6 +52,14 @@ function App() {
         {id: v1(), title: 'What to Buy', filter: 'all'}
     ])
 
+    function changeStatus(eventId: string, isDone: boolean) {
+        let task = tasks.find(t => t.id === eventId)
+        if (task) {
+            task.isDone = isDone
+        }
+        setTasks([...tasks])
+    }
+
     return (
         <div className={'app_wrapper'}>
             {todoLists.map(tl =>
@@ -62,7 +70,8 @@ function App() {
                           removeTask={removeTask}
                           tasks={taskForTodoList}
                           addTask={addTask}
-                          changeFilter={changeFilter}/>
+                          changeFilter={changeFilter}
+                          changeTaskStatus={changeStatus}/>
             )}
         </div>
     )
