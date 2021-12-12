@@ -62,17 +62,12 @@ function App() {
 
     return (
         <div className={'app_wrapper'}>
-            {todoLists.map(tl =>
-                <Todolist title={tl.title}
-                          id={tl.id}
-                          key={tl.id}
-                          filter={tl.filter}
-                          removeTask={removeTask}
-                          tasks={taskForTodoList}
-                          addTask={addTask}
-                          changeFilter={changeFilter}
-                          changeTaskStatus={changeStatus}/>
-            )}
+            <Todolist removeTask={removeTask}
+                      tasks={taskForTodoList}
+                      addTask={addTask}
+                      changeFilter={changeFilter}
+                      changeTaskStatus={changeStatus}
+                      filter={filter}/>
         </div>
     )
 }
