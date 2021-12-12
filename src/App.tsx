@@ -20,6 +20,11 @@ function App() {
         {id: v1(), title: 'React', isDone: false},
         {id: v1(), title: 'Redux', isDone: true}
     ])
+    let [todoLists, setTodoLists] = useState<TodoListType[]>([
+        {id: v1(), title: 'What to learn', filter: 'all'},
+        {id: v1(), title: 'What to Buy', filter: 'all'}
+    ])
+    let [filter, setFilter] = useState<FilterValueType>('all')
 
     function addTask(inputValue: string) {
         let task = {id: v1(), title: inputValue, isDone: false}
@@ -32,25 +37,9 @@ function App() {
         setTasks(filteredTasks)
     }
 
-    let [filter, setFilter] = useState<FilterValueType>('all')
-
-    let taskForTodoList = tasks
-
-    if (filter === 'active') {
-        taskForTodoList = tasks.filter(t => t.isDone === false)
-    }
-    if (filter === 'completed') {
-        taskForTodoList = tasks.filter(t => t.isDone === true)
-    }
-
     function changeFilter(value: FilterValueType) {
         setFilter(value)
     }
-
-    let [todoLists, setTodoLists] = useState([
-        {id: v1(), title: 'What to learn', filter: 'all'},
-        {id: v1(), title: 'What to Buy', filter: 'all'}
-    ])
 
     function changeStatus(eventId: string, isDone: boolean) {
         let task = tasks.find(t => t.id === eventId)
@@ -58,6 +47,14 @@ function App() {
             task.isDone = isDone
         }
         setTasks([...tasks])
+    }
+
+    let taskForTodoList = tasks
+    if (filter === 'active') {
+        taskForTodoList = tasks.filter(t => t.isDone === false)
+    }
+    if (filter === 'completed') {
+        taskForTodoList = tasks.filter(t => t.isDone === true)
     }
 
     return (
