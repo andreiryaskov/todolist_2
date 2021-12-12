@@ -2,7 +2,7 @@ import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import style from './Todolost.module.css';
 import {FilterValueType} from "../App";
 
-type TaskType = {
+export type TaskType = {
     id: string
     title: string
     isDone: boolean
@@ -14,6 +14,7 @@ type PropsType = {
     removeTask: (eventId: string, todolistId: string) => void
     changeFilter: (value: FilterValueType, todolistId: string) => void;
     changeTaskStatus: (eventId: string, isDone: boolean, todolistId: string) => void
+    removeTodoList: (id: string) => void
     filter: string
     title: string
     id: string
@@ -47,9 +48,15 @@ function Todolist(props: PropsType) {
         </li>
     })
 
-    const onAllChangeFilter = () => {props.changeFilter('all', props.id)},
-          onActiveChangeFilter = () => {props.changeFilter('active', props.id)},
-          onCompletedChangeFilter = () => {props.changeFilter('completed', props.id)}
+    const onAllChangeFilter = () => {
+            props.changeFilter('all', props.id)
+        },
+        onActiveChangeFilter = () => {
+            props.changeFilter('active', props.id)
+        },
+        onCompletedChangeFilter = () => {
+            props.changeFilter('completed', props.id)
+        }
 
 
     const addTaskBtn = () => {
@@ -72,11 +79,12 @@ function Todolist(props: PropsType) {
         }
 
 
-
-
     return (
         <div>
-            <h3> {props.title} </h3>
+            <h3> {props.title}
+                <button onClick={() => props.removeTodoList(props.id)}>x</button>
+            </h3>
+
             <input type="text"
                    value={inputValue}
                    onChange={onChangeHandler}
@@ -87,15 +95,15 @@ function Todolist(props: PropsType) {
             <ul className={style.listItem}>
                 {taskItem}
             </ul>
-            <button onClick={ onAllChangeFilter }
+            <button onClick={onAllChangeFilter}
                     className={props.filter === 'all' ? style.active_filter : ''}>
                 All
             </button>
-            <button onClick={ onActiveChangeFilter }
+            <button onClick={onActiveChangeFilter}
                     className={props.filter === 'active' ? style.active_filter : ''}>
                 Active
             </button>
-            <button onClick={ onCompletedChangeFilter }
+            <button onClick={onCompletedChangeFilter}
                     className={props.filter === 'completed' ? style.active_filter : ''}>
                 Completed
             </button>

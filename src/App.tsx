@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import './App.css';
-import Todolist from "./Component/Todolist";
+import Todolist, {TaskType} from "./Component/Todolist";
 import {v1} from "uuid";
 
 export type FilterValueType = 'all' | 'active' | 'completed';
@@ -8,7 +8,11 @@ export type FilterValueType = 'all' | 'active' | 'completed';
 type TodoListType = {
     id: string
     title: string
-    filter: string
+    filter: FilterValueType
+}
+
+type TaskStateType = {
+    [key: string]: TaskType[]
 }
 
 function App() {
@@ -20,8 +24,7 @@ function App() {
         {id: todolistId1, title: 'What to learn', filter: 'all'},
         {id: todolistId2, title: 'What to Buy', filter: 'all'}
     ])
-
-    let [tasks, setTasks] = useState({
+    let [tasks, setTasks] = useState<TaskStateType>({
         [todolistId1]: [
             {id: v1(), title: 'HTML5', isDone: false},
             {id: v1(), title: 'CSS3', isDone: true},
@@ -69,6 +72,12 @@ function App() {
         }
     }
 
+    function removeTodoList(id: string) {
+        setTodolists(todolists.filter(tl => tl.id != id))
+        delete tasks[id]
+        setTasks({...tasks})
+    }
+
 
     return (
         <div className={'app_wrapper'}>
@@ -89,6 +98,7 @@ function App() {
                                          tasks={tasksForTodoList}
                                          changeFilter={changeFilter}
                                          changeTaskStatus={changeStatus}
+                                         removeTodoList={removeTodoList}
                                          filter={tl.filter}
                                          title={tl.title}
                                          key={tl.id}
