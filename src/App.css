@@ -10,3 +10,11 @@
     align-items: center;
     justify-content: space-around;
 }
+
+.error-message {
+    color: red;
+}
+
+.error {
+    border: 1px solid red;
+}
