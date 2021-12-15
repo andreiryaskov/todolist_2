@@ -1,5 +1,12 @@
 .app_wrapper {
     margin-left: 10px;
     display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.todoLists {
+    display: flex;
+    align-items: center;
     justify-content: space-around;
 }

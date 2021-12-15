@@ -1,6 +1,7 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import style from './Todolost.module.css';
-import {FilterValueType} from "../App";
+import {FilterValueType} from "./App";
+import AddItemForm from "./AddItemForm";
 
 export type TaskType = {
     id: string
@@ -85,13 +86,7 @@ function Todolist(props: PropsType) {
                 <button onClick={() => props.removeTodoList(props.id)}>x</button>
             </h3>
 
-            <input type="text"
-                   value={inputValue}
-                   onChange={onChangeHandler}
-                   onKeyPress={onKeyPressHandler}
-                   className={error ? style.error_input : ''}/>
-            <button onClick={addTaskBtn}>+</button>
-            {error && <div className={style.error_message}>{error}</div>}
+            <AddItemForm addItem={addTaskBtn}/>
             <ul className={style.listItem}>
                 {taskItem}
             </ul>
