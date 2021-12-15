@@ -93,6 +93,12 @@ function App() {
         setTasks({...tasks, [newTodoListId]: []})
     }
 
+    function changeTaskStatus(taskID: string, isDone: boolean, todolistID: string) {
+        setTasks({...tasks, [todolistID]: tasks[todolistID].map(t => t.id === taskID ? {...t, isDone} : t)})
+    }
+
+
+
     return (
         <div className="App">
             <AddItemForm addItem={addTodoList}/>
