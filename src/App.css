@@ -22,3 +22,11 @@
 .active-filter {
     background-color: aqua;
 }
+
+.todolist_wrapper {
+    width: max-content;
+    height: max-content;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 10px;
+}
