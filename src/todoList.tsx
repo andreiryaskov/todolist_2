@@ -9,8 +9,11 @@ type TaskType = {
 }
 
 type PropsType = {
+    title: string
+    id: string
     tasks: TaskType[]
     deleteTask: (id: string) => void
+    deleteTodoLists: (id: string) => void
 }
 
 
@@ -24,7 +27,8 @@ const TodoList = (props: PropsType) => {
 
     return (
         <div className={'todolist_wrapper'}>
-            <h3>List 1 <button>x</button></h3>
+            <h3>{props.title} <button onClick={ () => {props.deleteTodoLists(props.id)} }>x</button></h3>
+
             <input className="add_input"/>
             <button>+</button>
             <ul>

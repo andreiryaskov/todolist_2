@@ -11,14 +11,35 @@ const App = () => {
         {id: v1(), title: 'jj', isDone: false}
     ])
 
+    let [todoLists, setTodoLists] = useState([
+        {id: v1(), title: 'List_1'},
+        {id: v1(), title: 'List_2'}
+    ])
+
     const deleteTask = (id: string) => {
-        tasks = tasks.filter(t => t.id != id)
-        setTask(tasks)
+        let filteredTasks = tasks.filter(task => task.id != id)
+        setTask(filteredTasks)
+    }
+
+    const deleteTodoLists = (id: string) => {
+        let filteredTodoLists = todoLists.filter(tl => tl.id != id)
+        setTodoLists(filteredTodoLists)
     }
 
     return (
         <div className={'app_wrapper'}>
-            <TodoList tasks={tasks} deleteTask={deleteTask}/>
+            <div className={'addItem_wrapper'}></div>
+            <div className={'todolists'}>
+                {
+                    todoLists.map(tl => <TodoList
+                        tasks={tasks}
+                        deleteTask={deleteTask}
+                        deleteTodoLists={deleteTodoLists}
+                        id={tl.id}
+                        title={tl.title}
+                    />)
+                }
+            </div>
         </div>
     );
 };
