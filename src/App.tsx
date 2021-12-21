@@ -2,6 +2,8 @@ import React, {useState} from 'react';
 import TodoList from "./todoList";
 import {v1} from "uuid";
 
+export type FilterValuesType = 'all' | 'active' | 'completed'
+
 const App = () => {
 
     let [tasks, setTask] = useState([
@@ -16,15 +18,31 @@ const App = () => {
         {id: v1(), title: 'List_2'}
     ])
 
-    const deleteTask = (id: string) => {
-        let filteredTasks = tasks.filter(task => task.id != id)
-        setTask(filteredTasks)
+    let [filter, setFilter] = useState('all')
+
+    const deleteTasks = (id: string) => {
+        let filterDeleteTasks = tasks.filter(t => t.id !== id)
+        setTask(filterDeleteTasks)
     }
 
-    const deleteTodoLists = (id: string) => {
-        let filteredTodoLists = todoLists.filter(tl => tl.id != id)
-        setTodoLists(filteredTodoLists)
+    const deleteList = (id: string) => {
+        let filterDeleteList = todoLists.filter(tl => tl.id !== id)
+        setTodoLists(filterDeleteList)
     }
+
+    let filteredTasks = tasks
+    if(filter === 'active') {
+        filteredTasks = tasks.filter(task => task.isDone === false)
+    }
+    if (filter === 'completed') {
+        filteredTasks = tasks.filter(task => task.isDone === true)
+    }
+
+    const removeTasks = (value: FilterValuesType) => {
+        setFilter(value)
+    }
+
+
 
     return (
         <div className={'app_wrapper'}>
@@ -32,12 +50,12 @@ const App = () => {
             <div className={'todolists'}>
                 {
                     todoLists.map(tl => <TodoList
-                        tasks={tasks}
-                        deleteTask={deleteTask}
-                        deleteTodoLists={deleteTodoLists}
+                        tasks={filteredTasks}
                         id={tl.id}
                         title={tl.title}
-                    />)
+                        deleteTasks={deleteTasks}
+                        deleteList={deleteList}
+                        removeTask={removeTasks}/>)
                 }
             </div>
         </div>
