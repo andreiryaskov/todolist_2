@@ -15,7 +15,7 @@ const App = () => {
 
     let [todoLists, setTodoLists] = useState([
         {id: v1(), title: 'List_1'},
-        {id: v1(), title: 'List_2'}
+        // {id: v1(), title: 'List_2'}
     ])
 
     let [filter, setFilter] = useState('all')
@@ -42,6 +42,11 @@ const App = () => {
         setFilter(value)
     }
 
+    const addTask = (title: string) => {
+        let task = {id: v1(), title: title, isDone: false}
+        let newTasks = [task, ...tasks]
+        setTask(newTasks)
+    }
 
 
     return (
@@ -55,7 +60,8 @@ const App = () => {
                         title={tl.title}
                         deleteTasks={deleteTasks}
                         deleteList={deleteList}
-                        removeTask={removeTasks}/>)
+                        removeTask={removeTasks}
+                        addTask={addTask}/>)
                 }
             </div>
         </div>

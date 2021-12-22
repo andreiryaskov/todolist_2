@@ -17,6 +17,11 @@
 
 .error {
     border: 1px solid red;
+    outline: none;
+}
+
+.input {
+    outline: none;
 }
 
 .active-filter {
