@@ -16,7 +16,7 @@ const App = () => {
         {id: v1(), title: 'List_1'},
         // {id: v1(), title: 'List_2'}
     ])
-    let [filter, setFilter] = useState('all')
+    let [filter, setFilter] = useState<FilterValuesType>('all')
 
     const deleteTasks = (id: string) => {
         let filterDeleteTasks = tasks.filter(t => t.id !== id)
@@ -33,6 +33,14 @@ const App = () => {
         let task = {id: v1(), title: title, isDone: false}
         let newTasks = [task, ...tasks]
         setTask(newTasks)
+    }
+    const changeTaskStatus = (id: string, isDone: boolean) => {
+        let task = tasks.find(t => t.id === id)
+        if (task) {
+            task.isDone = isDone
+            setTask([...tasks])
+        }
+
     }
 
     let filteredTasks = tasks
@@ -55,7 +63,9 @@ const App = () => {
                         deleteTasks={deleteTasks}
                         deleteList={deleteList}
                         removeTask={removeTasks}
-                        addTask={addTask}/>)
+                        addTask={addTask}
+                        changeTaskStatus={changeTaskStatus}
+                        filter={filter}/>)
                 }
             </div>
         </div>

@@ -36,6 +36,10 @@
     padding: 10px;
 }
 
-.addItem_wrapper {
+.active_filter {
+    background-color: aqua;
+}
 
+.is_done {
+    opacity: 0.5;
 }

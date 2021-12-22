@@ -15,6 +15,8 @@ type PropsType = {
     deleteList: (id: string) => void
     removeTask: (value: FilterValuesType) => void
     addTask: (title: string) => void
+    changeTaskStatus: (id: string, newIsDoneValue: boolean) => void
+    filter: FilterValuesType
 }
 
 const TodoList = (props: PropsType) => {
@@ -53,10 +55,16 @@ const TodoList = (props: PropsType) => {
 
         let task = props.tasks.map(t => {
             const onClickHandler = () => { props.deleteTasks(t.id) }
+            const onCheckedHandler = (e: ChangeEvent<HTMLInputElement>) => {
+                let newIsDoneValue = e.currentTarget.checked
+                props.changeTaskStatus(t.id, newIsDoneValue)
+            }
             return (
                 <li key={t.id}
-                    id={t.id}><input type={'checkbox'}
-                                     checked={t.isDone}/>{t.title}
+                    id={t.id}
+                    className={t.isDone ? 'is_done' : ''}><input type={'checkbox'}
+                                     checked={t.isDone}
+                                     onChange={ onCheckedHandler }/>{t.title}
                     <button onClick={onClickHandler}>x</button>
                 </li>
             )
@@ -80,9 +88,12 @@ const TodoList = (props: PropsType) => {
                 <ul>
                     {task}
                 </ul>
-                <button onClick={onAllClickHandler}>All</button>
-                <button onClick={onActiveClickHandler}>Active</button>
-                <button onClick={onCompletedClickHandler}>Completed</button>
+                <button onClick={onAllClickHandler}
+                        className={props.filter === 'all' ? 'active_filter' : ''}>All</button>
+                <button onClick={onActiveClickHandler}
+                        className={props.filter === 'active' ? 'active_filter' : ''}>Active</button>
+                <button onClick={onCompletedClickHandler}
+                        className={props.filter === 'completed' ? 'active_filter' : ''}>Completed</button>
             </div>
         );
     }
