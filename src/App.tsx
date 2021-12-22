@@ -12,22 +12,27 @@ const App = () => {
         {id: v1(), title: ',mlkj', isDone: false},
         {id: v1(), title: 'jj', isDone: false}
     ])
-
     let [todoLists, setTodoLists] = useState([
         {id: v1(), title: 'List_1'},
         // {id: v1(), title: 'List_2'}
     ])
-
     let [filter, setFilter] = useState('all')
 
     const deleteTasks = (id: string) => {
         let filterDeleteTasks = tasks.filter(t => t.id !== id)
         setTask(filterDeleteTasks)
     }
-
     const deleteList = (id: string) => {
         let filterDeleteList = todoLists.filter(tl => tl.id !== id)
         setTodoLists(filterDeleteList)
+    }
+    const removeTasks = (value: FilterValuesType) => {
+        setFilter(value)
+    }
+    const addTask = (title: string) => {
+        let task = {id: v1(), title: title, isDone: false}
+        let newTasks = [task, ...tasks]
+        setTask(newTasks)
     }
 
     let filteredTasks = tasks
@@ -37,17 +42,6 @@ const App = () => {
     if (filter === 'completed') {
         filteredTasks = tasks.filter(task => task.isDone === true)
     }
-
-    const removeTasks = (value: FilterValuesType) => {
-        setFilter(value)
-    }
-
-    const addTask = (title: string) => {
-        let task = {id: v1(), title: title, isDone: false}
-        let newTasks = [task, ...tasks]
-        setTask(newTasks)
-    }
-
 
     return (
         <div className={'app_wrapper'}>

@@ -1,14 +1,12 @@
-import React, {useState, KeyboardEvent} from 'react';
+import React, {KeyboardEvent, useState} from 'react';
 import './App.css'
 import {FilterValuesType} from "./App";
-
 
 type TaskType = {
     id: string
     title: string
     isDone: boolean
 }
-
 type PropsType = {
     title: string
     id: string
@@ -19,11 +17,9 @@ type PropsType = {
     addTask: (title: string) => void
 }
 
-
 const TodoList = (props: PropsType) => {
 
     let [title, setTitle] = useState('')
-
     let [error, setError] = useState<string | null>(null)
 
     const addTask = () => {
@@ -35,12 +31,15 @@ const TodoList = (props: PropsType) => {
         }
 
     }
-
     const onKeyPressHandler = (e: KeyboardEvent) => {
         if (e.charCode === 13) {
             addTask()
         }
     }
+
+    const onAllClickHandler = () => {props.removeTask('all')}
+    const onActiveClickHandler = () => {props.removeTask('active')}
+    const onCompletedClickHandler = () => {props.removeTask('completed')}
 
     let task = props.tasks.map(t => <li key={t.id}
                                         id={t.id}><input type={'checkbox'}
@@ -61,9 +60,9 @@ const TodoList = (props: PropsType) => {
             <ul>
                 {task}
             </ul>
-            <button onClick={ () => {props.removeTask('all')} }>All</button>
-            <button onClick={ () => {props.removeTask('active')} }>Active</button>
-            <button onClick={ () => {props.removeTask('completed')} }>Completed</button>
+            <button onClick={ onAllClickHandler }>All</button>
+            <button onClick={ onActiveClickHandler }>Active</button>
+            <button onClick={ onCompletedClickHandler }>Completed</button>
         </div>
     );
 };
