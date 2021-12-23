@@ -1,19 +1,20 @@
 import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import './App.css'
-import {FilterValuesType} from "./App";
+import {FilterValuesType, TodoListType} from "./App";
 
 type TaskType = {
     id: string
     title: string
     isDone: boolean
 }
+
 type PropsType = {
     title: string
     id: string
     tasks: TaskType[]
     deleteTasks: (id: string) => void
     deleteList: (id: string) => void
-    removeTask: (value: FilterValuesType) => void
+    removeTask: (value: FilterValuesType, todolistID: string) => void
     addTask: (title: string) => void
     changeTaskStatus: (id: string, newIsDoneValue: boolean) => void
     filter: FilterValuesType
@@ -43,22 +44,28 @@ const TodoList = (props: PropsType) => {
         }
 
         const onAllClickHandler = () => {
-            props.removeTask('all')
+            props.removeTask('all', props.id)
         }
         const onActiveClickHandler = () => {
-            props.removeTask('active')
+            props.removeTask('active', props.id)
         }
         const onCompletedClickHandler = () => {
-            props.removeTask('completed')
+            props.removeTask('completed', props.id)
         }
 
 
+
+        //таски
         let task = props.tasks.map(t => {
             const onClickHandler = () => { props.deleteTasks(t.id) }
             const onCheckedHandler = (e: ChangeEvent<HTMLInputElement>) => {
                 let newIsDoneValue = e.currentTarget.checked
                 props.changeTaskStatus(t.id, newIsDoneValue)
             }
+            //таски
+
+
+
             return (
                 <li key={t.id}
                     id={t.id}
@@ -70,7 +77,8 @@ const TodoList = (props: PropsType) => {
             )
         })
 
-        return (
+
+    return (
             <div className={'todolist_wrapper'}>
                 <h3>{props.title}
                     <button onClick={() => {
