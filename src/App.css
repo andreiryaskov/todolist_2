@@ -1,46 +1,24 @@
-.app_wrapper {
-    margin: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+.App {
+  padding: 30px;
+  display: flex;
 }
 
-.todolists {
-    display: flex;
-    align-items: center;
-    justify-content: flex-start;
-}
-
-.error-message {
-    color: red;
+.App > div {
+  margin-right: 50px;
 }
 
 .error {
-    border: 1px solid red;
-    outline: none;
+  border: red 1px solid;
 }
 
-.input {
-    outline: none;
+.error-message {
+  color: red;
 }
 
 .active-filter {
-    background-color: aqua;
+  background-color: aquamarine;
 }
 
-.todolist_wrapper {
-    width: max-content;
-    height: max-content;
-    border: 1px solid black;
-    border-radius: 3px;
-    padding: 10px;
-    margin: 20px;
-}
-
-.active_filter {
-    background-color: aqua;
-}
-
-.is_done {
-    opacity: 0.5;
+.is-done {
+  opacity: 0.5;
 }
