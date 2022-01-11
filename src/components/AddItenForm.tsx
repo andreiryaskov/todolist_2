@@ -1,19 +1,18 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
+import React, {ChangeEvent, KeyboardEvent, useState} from "react";
 
-type PropsType = {
-    addTask:(id: string, newTitle: string) => void
-    id: string
+type propsType = {
+    callBack: (title: string) => void
+    // todolistId: string
 }
 
-const AddItemForm = (props: PropsType) => {
-
+export const AddItenForm = ({callBack,  ...props}: propsType) => {
     let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
 
-    const addItem = () => {
+    const addTask = () => {
         let newTitle = title.trim();
         if (newTitle !== "") {
-            props.addTask(props.id, newTitle);
+            callBack(newTitle);
             setTitle("");
         } else {
             setError("Title is required");
@@ -23,14 +22,12 @@ const AddItemForm = (props: PropsType) => {
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
     }
-
     const onKeyPressHandler = (e: KeyboardEvent<HTMLInputElement>) => {
         setError(null);
         if (e.charCode === 13) {
-            addItem();
+            addTask();
         }
     }
-
     return (
         <div>
             <input value={title}
@@ -38,10 +35,8 @@ const AddItemForm = (props: PropsType) => {
                    onKeyPress={onKeyPressHandler}
                    className={error ? "error" : ""}
             />
-            <button onClick={addItem}>+</button>
+            <button onClick={addTask}>+</button>
             {error && <div className="error-message">{error}</div>}
         </div>
-    );
-};
-
-export default AddItemForm;
+    )
+}
