@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import './App.css';
 import {TaskType, Todolist} from './Todolist';
 import {v1} from 'uuid';
-import {AddItenForm} from "./components/AddItenForm";
+import {AddItemForm} from "./components/AddItemForm";
 
 export type FilterValuesType = "all" | "active" | "completed";
 type TodolistType = {
@@ -23,7 +23,7 @@ function App() {
     let [todolists, setTodolists] = useState<Array<TodolistType>>([
         {id: todolistId1, title: "What to learn", filter: "all"},
         {id: todolistId2, title: "What to buy", filter: "all"}
-        ])
+    ])
 
     let [tasks, setTasks] = useState<TasksStateType>({
         [todolistId1]: [
@@ -36,6 +36,11 @@ function App() {
         ],
 
     });
+
+    const updateTask = (todolistId: string, id: string, title: string) => {
+        setTasks({...tasks, [todolistId]: tasks[todolistId].map(m => m.id === id ? {...m, title} : m)})
+    }
+
 
 
     function removeTask(id: string, todolistId: string) {
@@ -61,7 +66,7 @@ function App() {
         let newID = v1();
         let newTodilist: TodolistType = {id: newID, title: title, filter: "all"};
         setTodolists([newTodilist, ...todolists]);
-        setTasks({...tasks,   [newID]: []})
+        setTasks({...tasks, [newID]: []})
     }
 
     function changeStatus(id: string, isDone: boolean, todolistId: string) {
@@ -96,7 +101,7 @@ function App() {
 
     return (
         <div className="App">
-            <AddItenForm callBack={addTodolist} />
+            <AddItemForm callBack={addTodolist}/>
             {todolists.map(tl => {
                 let allTodolistTasks = tasks[tl.id];
                 let tasksForTodolist = allTodolistTasks;
@@ -119,6 +124,7 @@ function App() {
                     changeTaskStatus={changeStatus}
                     filter={tl.filter}
                     removeTodolist={removeTodolist}
+                    updateTask={updateTask}
                 />
             })}
         </div>

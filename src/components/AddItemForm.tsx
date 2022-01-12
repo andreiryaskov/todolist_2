@@ -5,7 +5,7 @@ type propsType = {
     // todolistId: string
 }
 
-export const AddItenForm = ({callBack,  ...props}: propsType) => {
+export const AddItemForm = ({callBack,  ...props}: propsType) => {
     let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
 
