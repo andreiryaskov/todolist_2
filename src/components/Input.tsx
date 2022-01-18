@@ -1,24 +1,23 @@
-import React, {ChangeEvent, KeyboardEvent, useState} from "react";
+import React, {ChangeEvent, KeyboardEvent, useState} from 'react';
 import {Button} from "@mui/material";
 
-type propsType = {
-    callBack: (title: string) => void
+type propsType={
+    callBack:(newTitle:string)=>void
 }
 
-export const AddItemForm = ({callBack,  ...props}: propsType) => {
+export const Input = (props:propsType) => {
     let [title, setTitle] = useState("")
     let [error, setError] = useState<string | null>(null)
 
     const addTask = () => {
         let newTitle = title.trim();
         if (newTitle !== "") {
-            callBack(newTitle);
+            props.callBack(newTitle);
             setTitle("");
         } else {
             setError("Title is required");
         }
     }
-
     const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         setTitle(e.currentTarget.value)
     }
@@ -28,6 +27,7 @@ export const AddItemForm = ({callBack,  ...props}: propsType) => {
             addTask();
         }
     }
+
     return (
         <div>
             <input value={title}
@@ -38,8 +38,8 @@ export const AddItemForm = ({callBack,  ...props}: propsType) => {
             <Button variant="contained"
                     onClick={addTask}
                     size="small"
-                    style={{maxWidth: '30px', maxHeight: '30px', minWidth: '30px', minHeight: '30px'}}>+</Button>
+                    style={{maxWidth: '25px', maxHeight: '25px', minWidth: '25px', minHeight: '25px'}}>+</Button>
             {error && <div className="error-message">{error}</div>}
         </div>
-    )
-}
+    );
+};
