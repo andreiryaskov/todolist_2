@@ -13,10 +13,11 @@ export const TaskReducer = (state: TasksStateType, action: GeneralType):TasksSta
             return newTasks
         }
         case 'ADD-TASK': {
+            debugger
             let task = {id: v1(), title: action.payload.title, isDone: false}
             let todolistTasks = state[action.payload.todolistId]
             state[action.payload.todolistId] = [task, ...todolistTasks]
-            return state
+            return {...state}
         }
         case 'CHANGE-TASK': {
             let todolistTasks = state[action.payload.todolistId]
@@ -24,7 +25,7 @@ export const TaskReducer = (state: TasksStateType, action: GeneralType):TasksSta
             if (task) {
                 task.title = action.payload.newTitle;
             }
-            return state
+            return {...state}
         }
         case 'CHANGE-STATUS': {
             //достанем нужный массив по todolistId:
@@ -34,7 +35,7 @@ export const TaskReducer = (state: TasksStateType, action: GeneralType):TasksSta
             //изменим таску, если она нашлась
             if (task) {
                 task.isDone = action.payload.isDone
-                return state
+                return ({...state})
             }
         }
         case 'REMOVE-TODOLIST-AND-TASKS': {

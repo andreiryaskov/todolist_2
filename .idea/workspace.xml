@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="fd2c7aab-856e-4774-a8c0-9ab533a98511" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaskReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/TaskReducer.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TodoListReducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/TodoListReducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/todoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,8 +16,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
