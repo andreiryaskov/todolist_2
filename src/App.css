@@ -1,6 +1,7 @@
 .App {
   padding: 30px;
   display: flex;
+  /*background-color: black;*/
 }
 
 .App > div {
@@ -21,4 +22,8 @@
 
 .is-done {
   opacity: 0.5;
+}
+
+li {
+  list-style-type: none;
 }

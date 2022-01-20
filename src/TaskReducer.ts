@@ -35,7 +35,7 @@ export const TaskReducer = (state: TasksStateType, action: GeneralType):TasksSta
             //изменим таску, если она нашлась
             if (task) {
                 task.isDone = action.payload.isDone
-                return ({...state})
+                return {...state}
             }
         }
         case 'REMOVE-TODOLIST-AND-TASKS': {
