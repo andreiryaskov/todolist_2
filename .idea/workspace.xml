@@ -1,28 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fd2c7aab-856e-4774-a8c0-9ab533a98511" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/test/tasks.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/tasks.ts" afterDir="false" />
+    <list default="true" id="5c099171-e70e-4115-8313-2adebf438e1c" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AddItemForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/AddItemForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/EditableSpan.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/EditableSpan.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TaskReducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TodoListReducer.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Todolist.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/Todolist.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/tasks.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/tasks.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="TypeScript JSX File" />
-        <option value="TypeScript File" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectId" id="23S0WlnHtqdRQxBZVwo4bhlwhw0" />
+  <component name="ProjectId" id="24sgVOhzRjcdAuHDVdKRVeMI5aa" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -32,97 +34,28 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../count/my_count" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.standard" value="" />
-    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/node_modules/react-scripts" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="ts.external.directory.path" value="D:\Learn\IT_Incubator\todolist\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
-  </component>
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="D:\Learn\IT_Incubator\todolist\src\test" />
-    </key>
-  </component>
-  <component name="RunManager">
-    <configuration name="tasks.test.ts" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
-      <node-interpreter value="project" />
-      <node-options value="" />
-      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
-      <working-dir value="$PROJECT_DIR$" />
-      <envs />
-      <scope-kind value="TEST_FILE" />
-      <test-file value="$PROJECT_DIR$/src/test/tasks.test.ts" />
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Jest.tasks.test.ts" />
-      </list>
-    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="fd2c7aab-856e-4774-a8c0-9ab533a98511" name="Changes" comment="" />
-      <created>1641712215516</created>
+      <changelist id="5c099171-e70e-4115-8313-2adebf438e1c" name="Changes" comment="" />
+      <created>1644424732999</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1641712215516</updated>
-      <workItem from="1641712216875" duration="410000" />
-      <workItem from="1641712749203" duration="23000" />
-      <workItem from="1641712773881" duration="7759000" />
-      <workItem from="1641913862681" duration="1452000" />
-      <workItem from="1641920923191" duration="987000" />
-      <workItem from="1641921984456" duration="91000" />
-      <workItem from="1641922084773" duration="237000" />
-      <workItem from="1641922377317" duration="33000" />
-      <workItem from="1641922442257" duration="1283000" />
-      <workItem from="1641983664293" duration="449000" />
-      <workItem from="1641999761948" duration="249000" />
-      <workItem from="1642002142262" duration="1766000" />
-      <workItem from="1642004383190" duration="34000" />
-      <workItem from="1642244249788" duration="30000" />
-      <workItem from="1642502486914" duration="37000" />
-      <workItem from="1642517686488" duration="187000" />
-      <workItem from="1642517906778" duration="288000" />
-      <workItem from="1642518325116" duration="415000" />
-      <workItem from="1642518753012" duration="1268000" />
-      <workItem from="1642520043007" duration="3035000" />
-      <workItem from="1642523576744" duration="5121000" />
-      <workItem from="1642578735981" duration="438000" />
-      <workItem from="1642579345697" duration="89000" />
-      <workItem from="1642579444310" duration="1287000" />
-      <workItem from="1642583150391" duration="2274000" />
-      <workItem from="1642585476170" duration="16102000" />
-      <workItem from="1642679969283" duration="3252000" />
-      <workItem from="1642694796892" duration="15000" />
-      <workItem from="1642695574755" duration="290000" />
-      <workItem from="1642695945626" duration="15000" />
-      <workItem from="1642696367928" duration="5014000" />
+      <updated>1644424732999</updated>
+      <workItem from="1644424736055" duration="1109000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/todolist$tasks_test_ts.info" NAME="tasks.test.ts Coverage Results" MODIFIED="1642699399356" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="JestJavaScriptTestRunnerCoverage" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

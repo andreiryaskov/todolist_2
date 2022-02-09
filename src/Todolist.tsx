@@ -2,11 +2,8 @@ import React, {ChangeEvent} from 'react';
 import {FilterValuesType} from './App';
 import {AddItemForm} from './AddItemForm';
 import {EditableSpan} from './EditableSpan';
-import {Button, ButtonGroup, IconButton} from "@material-ui/core";
-import DeleteIcon from '@mui/icons-material/Delete';
-import {Checkbox, TextField} from "@mui/material";
-
-
+import {Button, Checkbox, IconButton} from '@material-ui/core';
+import {Delete} from '@material-ui/icons';
 
 export type TaskType = {
     id: string
@@ -28,13 +25,7 @@ type PropsType = {
     changeTaskTitle: (taskId: string, newTitle: string, todolistId: string) => void
 }
 
-
-function BpCheckbox(props: { defaultChecked: boolean }) {
-    return null;
-}
-
 export function Todolist(props: PropsType) {
-    debugger
     const addTask = (title: string) => {
         props.addTask(title, props.id);
     }
@@ -51,13 +42,13 @@ export function Todolist(props: PropsType) {
     const onCompletedClickHandler = () => props.changeFilter("completed", props.id);
 
     return <div>
-        <h3><EditableSpan value={props.title} onChange={changeTodolistTitle}/>
-            <IconButton aria-label="delete" color="primary">
-                <DeleteIcon onClick={removeTodolist}/>
+        <h3> <EditableSpan value={props.title} onChange={changeTodolistTitle} />
+            <IconButton onClick={removeTodolist}>
+                <Delete />
             </IconButton>
         </h3>
         <AddItemForm addItem={addTask}/>
-        <ul>
+        <div>
             {
                 props.tasks.map(t => {
                     const onClickHandler = () => props.removeTask(t.id, props.id)
@@ -69,39 +60,37 @@ export function Todolist(props: PropsType) {
                         props.changeTaskTitle(t.id, newValue, props.id);
                     }
 
-                    return <li key={t.id} className={t.isDone ? "is-done" : ""}>
+
+                    return <div key={t.id} className={t.isDone ? "is-done" : ""}>
                         <Checkbox
                             checked={t.isDone}
+                            color="primary"
                             onChange={onChangeHandler}
-                            inputProps={{ 'aria-label': 'controlled' }}
                         />
 
-                        <EditableSpan value={t.title} onChange={onTitleChangeHandler}/>
-
-                        <IconButton aria-label="delete" color="primary">
-                            <DeleteIcon onClick={onClickHandler}/>
+                        <EditableSpan value={t.title} onChange={onTitleChangeHandler} />
+                        <IconButton onClick={onClickHandler}>
+                            <Delete />
                         </IconButton>
-                    </li>
+                    </div>
                 })
             }
-        </ul>
-        <ButtonGroup variant="contained"
-                     aria-label="outlined primary button group"
-                     size="small"
-                     color='primary'>
-            <Button className={props.filter === 'all' ? "active-filter" : ""}
-                    onClick={onAllClickHandler}>
-                All
+        </div>
+        <div style={{ paddingTop: "10px"}}>
+            <Button variant={props.filter === 'all' ? 'outlined' : 'text'}
+                    onClick={onAllClickHandler}
+                    color={'default'}
+            >All
             </Button>
-            <Button className={props.filter === 'active' ? "active-filter" : ""}
-                    onClick={onActiveClickHandler}>
-                Active
+            <Button variant={props.filter === 'active' ? 'outlined' : 'text'}
+                    onClick={onActiveClickHandler}
+                    color={'primary'}>Active
             </Button>
-            <Button className={props.filter === 'completed' ? "active-filter" : ""}
-                    onClick={onCompletedClickHandler}>
-                Completed
+            <Button variant={props.filter === 'completed' ? 'outlined' : 'text'}
+                    onClick={onCompletedClickHandler}
+                    color={'secondary'}>Completed
             </Button>
-        </ButtonGroup>
+        </div>
     </div>
 }
 
