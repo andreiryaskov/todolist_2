@@ -2,10 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5c099171-e70e-4115-8313-2adebf438e1c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/state/user-reducer.test.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/state/user-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/todolist-reducer.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/state/todolists-reducer.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.test.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/user-reducer.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/user-reducer.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/state/user-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/state/user-reducer.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +44,33 @@
     <property name="ts.external.directory.path" value="D:\Learn\IT_Incubator\todolist\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
-  <component name="RunManager" selected="Jest.user reducer should increment only childrenCount">
+  <component name="RunManager" selected="Jest.correct todolist should be removed">
+    <configuration name="correct todolist should be removed" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/state/todolists-reducer.test.ts" />
+      <test-names>
+        <test-name value="correct todolist should be removed" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="user reducer should change name of user" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/state/user-reducer.test.ts" />
+      <test-names>
+        <test-name value="user reducer should change name of user" />
+      </test-names>
+      <method v="2" />
+    </configuration>
     <configuration name="user reducer should increment only age" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -71,6 +99,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Jest.correct todolist should be removed" />
+        <item itemvalue="Jest.user reducer should change name of user" />
         <item itemvalue="Jest.user reducer should increment only childrenCount" />
         <item itemvalue="Jest.user reducer should increment only age" />
       </list>
@@ -86,6 +116,8 @@
       <updated>1644424732999</updated>
       <workItem from="1644424736055" duration="2002000" />
       <workItem from="1644597441348" duration="3412000" />
+      <workItem from="1644601154146" duration="56000" />
+      <workItem from="1644683876705" duration="3289000" />
     </task>
     <servers />
   </component>
@@ -102,5 +134,6 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
