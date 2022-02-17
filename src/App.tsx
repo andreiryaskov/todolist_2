@@ -1,4 +1,4 @@
-import React, {useCallback, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
 import {TaskType, Todolist} from './Todolist';
 import {v1} from 'uuid';
@@ -7,13 +7,14 @@ import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography}
 import {Menu} from '@material-ui/icons';
 
 export type FilterValuesType = "all" | "active" | "completed";
+
 export type TodolistType = {
     id: string
     title: string
     filter: FilterValuesType
 }
 
-export type TasksStateType = {
+type TasksStateType = {
     [key: string]: Array<TaskType>
 }
 
@@ -47,7 +48,7 @@ function App() {
         setTasks({...tasks});
     }
 
-    const addTask = useCallback((title: string, todolistId: string) => {
+    function addTask(title: string, todolistId: string) {
         let task = {id: v1(), title: title, isDone: false};
         //достанем нужный массив по todolistId:
         let todolistTasks = tasks[todolistId];
@@ -55,7 +56,7 @@ function App() {
         tasks[todolistId] = [task, ...todolistTasks];
         // засетаем в стейт копию объекта, чтобы React отреагировал перерисовкой
         setTasks({...tasks});
-    }, [tasks])
+    }
 
     function changeStatus(id: string, isDone: boolean, todolistId: string) {
         //достанем нужный массив по todolistId:
