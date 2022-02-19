@@ -7,7 +7,6 @@ import {AppBar, Button, Container, Grid, IconButton, Paper, Toolbar, Typography}
 import {Menu} from '@material-ui/icons';
 
 export type FilterValuesType = "all" | "active" | "completed";
-
 export type TodolistType = {
     id: string
     title: string
@@ -15,7 +14,7 @@ export type TodolistType = {
 }
 
 export type TasksStateType = {
-    [key: string]: TaskType[]
+    [key: string]: Array<TaskType>
 }
 
 
@@ -38,6 +37,7 @@ function App() {
             {id: v1(), title: "React Book", isDone: true}
         ]
     });
+
 
     function removeTask(id: string, todolistId: string) {
         //достанем нужный массив по todolistId:
@@ -83,6 +83,7 @@ function App() {
             setTasks({...tasks});
         }
     }
+
 
     function changeFilter(value: FilterValuesType, todolistId: string) {
         let todolist = todolists.find(tl => tl.id === todolistId);
