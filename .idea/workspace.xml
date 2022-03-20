@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="cde3800f-eb53-4fb6-a8b5-c88e590ea98f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/api/todolist.api.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/stories/todolists-api.stories.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/stories/todolists-api.stories.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -14,6 +15,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -33,7 +35,7 @@
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="yarn" />
-    <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\WebStorm 2021.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
+    <property name="ts.external.directory.path" value="D:\Learn\IT_Incubator\todolist\node_modules\typescript\lib" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -46,7 +48,13 @@
       <updated>1646560635351</updated>
       <workItem from="1646560637021" duration="1920000" />
       <workItem from="1646636080623" duration="8667000" />
-      <workItem from="1646653138588" duration="250000" />
+      <workItem from="1646653138588" duration="529000" />
+      <workItem from="1646735055290" duration="29000" />
+      <workItem from="1646735106480" duration="70000" />
+      <workItem from="1646897702734" duration="43000" />
+      <workItem from="1647080436502" duration="212000" />
+      <workItem from="1647586518504" duration="8300000" />
+      <workItem from="1647761372076" duration="8184000" />
     </task>
     <servers />
   </component>
