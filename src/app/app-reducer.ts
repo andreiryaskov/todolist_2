@@ -1,11 +1,16 @@
 export type RequestStatusType = 'loading' | 'idel' | 'succeeded' | 'failed'
 export type SetStatusActionType = ReturnType<typeof setStatusAC>
-export type ActionType = SetStatusActionType
+export type SetErrorActionType = ReturnType<typeof setAppErrorAC>
+export type ActionType =
+    | SetStatusActionType
+    | SetErrorActionType
 export type InitialStateType = typeof initialState
+export type NullableType<T> = null | T
 
 
 const initialState = {
-    status: 'loadin' as RequestStatusType
+    status: 'loading' as RequestStatusType,
+    error: null as NullableType<string>
 }
 
 
@@ -14,6 +19,9 @@ export const appReducer = (state: InitialStateType = initialState, action: Actio
         case "APP/SET-STATUS": {
             return {...state, status: action.status}
         }
+        case "APP/SET-ERROR": {
+            return {...state, error: action.error}
+        }
         default:
             return state
     }
@@ -21,4 +29,5 @@ export const appReducer = (state: InitialStateType = initialState, action: Actio
 
 
 export const setStatusAC = (status: RequestStatusType) => ({type: 'APP/SET-STATUS', status} as const)
+export const setAppErrorAC = (error: NullableType<string>) => ({type: 'APP/SET-ERROR', error} as const)
 
