@@ -9,6 +9,7 @@ import {
     setStatusAC,
     SetStatusActionType
 } from "../../app/app-reducer";
+import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 
 const initialState: TasksStateType = {}
 
@@ -64,6 +65,9 @@ export const fetchTasksTC = (todolistId: string) => (dispatch: Dispatch<ActionsT
             dispatch(action)
             dispatch(setStatusAC('succeeded'))
         })
+        .catch((error) => {
+            handleServerNetworkError(error, dispatch)
+        })
 }
 export const removeTaskTC = (taskId: string, todolistId: string) => (dispatch: Dispatch<ActionsType>) => {
     dispatch(setStatusAC('loading'))
@@ -72,6 +76,9 @@ export const removeTaskTC = (taskId: string, todolistId: string) => (dispatch: D
             const action = removeTaskAC(taskId, todolistId)
             dispatch(action)
             dispatch(setStatusAC('succeeded'))
+        })
+        .catch((error) => {
+            handleServerNetworkError(error, dispatch)
         })
 }
 export const addTaskTC = (title: string, todolistId: string) => (dispatch: Dispatch<ActionsType>) => {
@@ -82,17 +89,11 @@ export const addTaskTC = (title: string, todolistId: string) => (dispatch: Dispa
                 dispatch(addTaskAC(res.data.data.item))
                 dispatch(setStatusAC('succeeded'))
             } else {
-                if (res.data.messages.length) {
-                    dispatch(setAppErrorAC(res.data.messages[0]))
-                } else {
-                    dispatch(setAppErrorAC('Some error occured'))
-                }
-                dispatch(setStatusAC('failed'))
+                handleServerAppError(res.data, dispatch)
             }
         })
         .catch((error) => {
-            dispatch(setAppErrorAC(error.messages))
-            dispatch(setStatusAC('failed'))
+            handleServerNetworkError(error, dispatch)
         })
 }
 export const updateTaskTC = (taskId: string, domainModel: UpdateDomainTaskModelType, todolistId: string) =>
@@ -124,8 +125,7 @@ export const updateTaskTC = (taskId: string, domainModel: UpdateDomainTaskModelT
                 dispatch(setStatusAC('succeeded'))
             })
             .catch((error) => {
-                dispatch(setAppErrorAC(error.messages))
-                dispatch(setStatusAC('failed'))
+                handleServerNetworkError(error, dispatch)
             })
     }
 
