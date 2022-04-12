@@ -90,6 +90,10 @@ export const addTaskTC = (title: string, todolistId: string) => (dispatch: Dispa
                 dispatch(setStatusAC('failed'))
             }
         })
+        .catch((error) => {
+            dispatch(setAppErrorAC(error.messages))
+            dispatch(setStatusAC('failed'))
+        })
 }
 export const updateTaskTC = (taskId: string, domainModel: UpdateDomainTaskModelType, todolistId: string) =>
     (dispatch: Dispatch<ActionsType>, getState: () => AppRootStateType) => {
@@ -118,6 +122,10 @@ export const updateTaskTC = (taskId: string, domainModel: UpdateDomainTaskModelT
                 const action = updateTaskAC(taskId, domainModel, todolistId)
                 dispatch(action)
                 dispatch(setStatusAC('succeeded'))
+            })
+            .catch((error) => {
+                dispatch(setAppErrorAC(error.messages))
+                dispatch(setStatusAC('failed'))
             })
     }
 

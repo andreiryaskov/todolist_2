@@ -1,4 +1,4 @@
-export type RequestStatusType = 'loading' | 'idel' | 'succeeded' | 'failed'
+export type RequestStatusType = 'loading' | 'idle' | 'succeeded' | 'failed'
 export type SetStatusActionType = ReturnType<typeof setStatusAC>
 export type SetErrorActionType = ReturnType<typeof setAppErrorAC>
 export type ActionType =
