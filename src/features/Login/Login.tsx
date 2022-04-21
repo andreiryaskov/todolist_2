@@ -11,12 +11,11 @@ import {useFormik} from "formik";
 import {loginTC} from "./authReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../app/store";
-import {useNavigate} from "react-router-dom";
+import {Navigate, useNavigate} from "react-router-dom";
 
 export const Login = () => {
 
     const dispatch = useDispatch()
-    const navigate = useNavigate()
 
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
 
@@ -52,8 +51,7 @@ export const Login = () => {
     })
 
     if (isLoggedIn) {
-        // return <Navigate to={'/'}/>
-        navigate('/')
+        return <Navigate to={'/'}/>
     }
 
 

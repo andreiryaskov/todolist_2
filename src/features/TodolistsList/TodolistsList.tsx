@@ -29,9 +29,6 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
     const isLoggedIn = useSelector<AppRootStateType, boolean>(state => state.auth.isLoggedIn)
     const dispatch = useDispatch()
 
-    // const navigate = useNavigate()
-
-
     useEffect(() => {
         if (demo || !isLoggedIn) {
             return;
@@ -82,7 +79,6 @@ export const TodolistsList: React.FC<PropsType> = ({demo = false}) => {
 
     if (!isLoggedIn) {
         return <Navigate to={'login'}/>
-        // navigate('login')
     }
 
 
