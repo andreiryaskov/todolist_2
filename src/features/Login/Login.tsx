@@ -12,6 +12,7 @@ import {loginTC} from "./authReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../app/store";
 import {Navigate, useNavigate} from "react-router-dom";
+import {LoginParamsType} from "../../api/todolists-api";
 
 export const Login = () => {
 
@@ -32,7 +33,9 @@ export const Login = () => {
             rememberMe: false
         },
         validate: (values) => {
-            const errors: FormikErrorType = {};
+            const errors: Partial<Omit<LoginParamsType, 'captcha'>> = {
+
+            };
             if (!values.email) {
                 errors.email = 'Required';
             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
