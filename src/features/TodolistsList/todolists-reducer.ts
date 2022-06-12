@@ -1,6 +1,6 @@
-import {todolistsAPI, TodolistType} from '../../api/todolists-api'
-import {Dispatch} from 'redux'
-import {RequestStatusType, setAppStatusAC, SetAppStatusActionType} from '../../app/app-reducer'
+import {todolistsAPI, TodolistType} from '../../api/todolists-api';
+import {Dispatch} from 'redux';
+import {RequestStatusType, setAppStatusAC, SetAppStatusActionType} from '../../app/app-reducer';
 import {fetchTasksTC} from "./tasks-reducer";
 
 const initialState: Array<TodolistDomainType> = []
@@ -66,14 +66,14 @@ export const fetchTodolistsTC = () => {
 }
 export const removeTodolistTC = (todolistId: string) => {
     return (dispatch: ThunkDispatch) => {
-        //изменим глобальный статус приложения, чтобы вверху полоса побежала
+        //чтобы вверху полоска побежала
         dispatch(setAppStatusAC('loading'))
-        //изменим статус конкретного тудулиста, чтобы он мог задизеблить что надо
+        //задизеблить что надо
         dispatch(changeTodolistEntityStatusAC(todolistId, 'loading'))
         todolistsAPI.deleteTodolist(todolistId)
             .then((res) => {
                 dispatch(removeTodolistAC(todolistId))
-                //скажем глобально приложению, что асинхронная операция завершена
+                //асинхронная операция завершена
                 dispatch(setAppStatusAC('succeeded'))
             })
     }
@@ -110,7 +110,7 @@ type ActionsType =
     | SetTodolistsActionType
     | ReturnType<typeof changeTodolistEntityStatusAC>
     | ClearDataActionType
-export type FilterValuesType = 'all' | 'active' | 'completed';
+export type FilterValuesType = 'all' | 'active' | 'completed'
 export type TodolistDomainType = TodolistType & {
     filter: FilterValuesType
     entityStatus: RequestStatusType

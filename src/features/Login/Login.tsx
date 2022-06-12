@@ -11,7 +11,7 @@ import {useFormik} from "formik";
 import {loginTC} from "./authReducer";
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../app/store";
-import {Navigate, useNavigate} from "react-router-dom";
+import {Navigate} from "react-router-dom";
 import {LoginParamsType} from "../../api/todolists-api";
 
 export const Login = () => {
@@ -39,12 +39,12 @@ export const Login = () => {
             if (!values.email) {
                 errors.email = 'Required';
             } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-                errors.email = 'Invalid email address';
+                errors.email = 'Invalid email address'
             }
             if (!values.password) {
-                errors.password = 'Required';
+                errors.password = 'Required'
             } else if (values.password.length < 3) {
-                errors.password = 'Must be 3 characters or more';
+                errors.password = 'Must be 3 characters or more'
             }
             return errors;
         },

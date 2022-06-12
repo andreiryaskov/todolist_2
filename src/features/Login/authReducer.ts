@@ -1,5 +1,5 @@
-import { Dispatch } from 'redux'
-import { SetAppErrorActionType, setAppStatusAC, SetAppStatusActionType } from '../../app/app-reducer'
+import {Dispatch} from 'redux'
+import {SetAppErrorActionType, setAppStatusAC, SetAppStatusActionType} from '../../app/app-reducer'
 import {authAPI, LoginParamsType} from "../../api/todolists-api";
 import {handleServerAppError, handleServerNetworkError} from "../../utils/error-utils";
 import {ClearDataActionType, clearTodolistDataAC} from "../TodolistsList/todolists-reducer";
@@ -28,13 +28,13 @@ export const loginTC = (data: LoginParamsType) => (dispatch: Dispatch<ActionsTyp
     dispatch(setAppStatusAC('loading'))
     authAPI.login(data)
         .then((res) => {
-        if (res.data.resultCode === 0) {
-            dispatch(setAppStatusAC('succeeded'))
-            dispatch(setIsLoggedInAC(true))
-        } else {
-            handleServerAppError(res.data, dispatch)
-        }
-    })
+            if (res.data.resultCode === 0) {
+                dispatch(setAppStatusAC('succeeded'))
+                dispatch(setIsLoggedInAC(true))
+            } else {
+                handleServerAppError(res.data, dispatch)
+            }
+        })
         .catch((error) => {
             handleServerNetworkError(error, dispatch)
         })
