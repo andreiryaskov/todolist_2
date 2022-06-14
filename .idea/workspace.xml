@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="1327fd2b-4231-41c6-b9ed-703c41ff5ebb" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/tests/app.test.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/api/todolists-api.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/api/todolists-api.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app/store.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/store.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/features/TodolistsList/tasks-reducer.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/features/TodolistsList/tasks-reducer.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tests/app.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/tests/app.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,8 +49,8 @@
       <recent name="D:\Learn\IT_Incubator\todolist\src\features\Login" />
     </key>
   </component>
-  <component name="RunManager" selected="Jest.Todolist should be remove">
-    <configuration name="Todolist should be remove" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Jest.Task should be set">
+    <configuration name="IsLogged should be true" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -53,11 +59,11 @@
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/src/tests/app.test.ts" />
       <test-names>
-        <test-name value="Todolist should be remove" />
+        <test-name value="IsLogged should be true" />
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="todolist should be added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="Task should be added" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
@@ -66,14 +72,56 @@
       <scope-kind value="TEST" />
       <test-file value="$PROJECT_DIR$/src/tests/app.test.ts" />
       <test-names>
-        <test-name value="todolist should be added" />
+        <test-name value="Task should be added" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Task should be remove" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/tests/app.test.ts" />
+      <test-names>
+        <test-name value="Task should be remove" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Task should be set" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/tests/app.test.ts" />
+      <test-names>
+        <test-name value="Task should be set" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="Task should be update" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="TEST" />
+      <test-file value="$PROJECT_DIR$/src/tests/app.test.ts" />
+      <test-names>
+        <test-name value="Task should be update" />
       </test-names>
       <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Jest.Todolist should be remove" />
-        <item itemvalue="Jest.todolist should be added" />
+        <item itemvalue="Jest.Task should be set" />
+        <item itemvalue="Jest.Task should be update" />
+        <item itemvalue="Jest.Task should be added" />
+        <item itemvalue="Jest.Task should be remove" />
+        <item itemvalue="Jest.IsLogged should be true" />
       </list>
     </recent_temporary>
   </component>

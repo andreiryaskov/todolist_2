@@ -55,6 +55,7 @@
     ]
   },
   "devDependencies": {
+    "fetch-mock": "^9.11.0",
     "gh-pages": "^3.2.3"
   }
 }

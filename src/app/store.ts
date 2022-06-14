@@ -5,8 +5,7 @@ import thunkMiddleware from 'redux-thunk'
 import {appReducer} from './app-reducer'
 import {authReducer} from "../features/Login/authReducer";
 
-// объединяя reducer-ы с помощью combineReducers,
-// мы задаём структуру нашего единственного объекта-состояния
+// объединяем reducer-ы с помощью combineReducers
 const rootReducer = combineReducers({
     tasks: tasksReducer,
     todolists: todolistsReducer,
